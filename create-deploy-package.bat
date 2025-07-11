@@ -52,6 +52,10 @@ REM 배포 가이드 복사
 copy "DEPLOY_README.md" "JTD1.0\" >nul
 echo ✅ 배포 가이드 복사 완료
 
+REM 라이센스 파일 복사
+copy "LICENSE" "JTD1.0\" >nul
+echo ✅ 라이센스 파일 복사 완료
+
 echo.
 echo ============================================
 echo 배포 패키지 생성 완료!
@@ -65,6 +69,7 @@ echo ├── JsonToDatabase-1.0.0.jar
 echo ├── run.bat
 echo ├── 테이블생성.sql
 echo ├── DEPLOY_README.md
+echo ├── LICENSE
 echo ├── config\
 echo │   ├── application.properties
 echo │   └── application-prod.properties

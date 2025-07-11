@@ -51,11 +51,11 @@ Table 'aiq.product_info' doesn't exist
 
 1. `테이블생성.sql` 파일 실행:
    ```sql
-   mysql -u aodata -p aiq < 테이블생성.sql
+   mysql -u [사용자명] -p [데이터베이스명] < 테이블생성.sql
    ```
 2. 또는 MariaDB 클라이언트에서 직접 실행:
    ```sql
-   USE aiq;
+   USE [데이터베이스명];
    CREATE TABLE product_info (...);
    ```
 
@@ -200,12 +200,12 @@ Get-Content sample-new-structure.json | ConvertFrom-Json
 
 ```bash
 # 1. 데이터베이스 준비
-mysql -u aodata -p
-CREATE DATABASE IF NOT EXISTS aiq CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE aiq;
+mysql -u [사용자명] -p
+CREATE DATABASE IF NOT EXISTS [데이터베이스명] CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE [데이터베이스명];
 
 # 2. 테이블 생성
-mysql -u aodata -p aiq < 테이블생성.sql
+mysql -u [사용자명] -p [데이터베이스명] < 테이블생성.sql
 
 # 3. 애플리케이션 빌드
 gradlew.bat clean build -x test

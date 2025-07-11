@@ -72,29 +72,29 @@ Spring Boot를 사용하여 JSON 파일을 읽어서 MariaDB에 데이터를 삽
 1. MariaDB에 데이터베이스 생성:
 
 ```sql
-CREATE DATABASE aiq;
+CREATE DATABASE your_database_name;
 ```
 
 2. 테이블 생성:
 
 ```sql
 -- 테이블생성.sql 파일 실행
-mysql -u aodata -p aiq < 테이블생성.sql
+mysql -u [사용자명] -p [데이터베이스명] < 테이블생성.sql
 ```
 
 또는 MariaDB 클라이언트에서 직접 실행:
 
 ```sql
-USE aiq;
+USE [데이터베이스명];
 -- 테이블생성.sql 파일 내용 복사하여 실행
 ```
 
 3. `src/main/resources/application.properties` 파일에서 데이터베이스 연결 정보 수정:
 
 ```properties
-spring.datasource.url=jdbc:mariadb://localhost:23307/aiq
-spring.datasource.username=aodata
-spring.datasource.password=aodata0901
+spring.datasource.url=jdbc:mariadb://localhost:3306/your_database_name
+spring.datasource.username=your_username
+spring.datasource.password=your_password
 ```
 
 ## 빌드 방법
@@ -227,6 +227,7 @@ JTD1.0/
 ├── run.bat                       # 실행 배치 파일
 ├── 테이블생성.sql                # DB 테이블 생성 스크립트
 ├── DEPLOY_README.md              # 배포 가이드
+├── LICENSE                       # MIT 라이센스 파일
 ├── config/
 │   ├── application.properties    # 설정 파일
 │   └── application-prod.properties
