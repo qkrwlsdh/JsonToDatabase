@@ -1,6 +1,17 @@
 # JSON to Database
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Java](https://img.shields.io/badge/Java-17%2B-orange.svg)](https://www.oracle.com/java/)
+[![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.x-brightgreen.svg)](https://spring.io/projects/spring-boot)
+[![MariaDB](https://img.shields.io/badge/MariaDB-10.x-blue.svg)](https://mariadb.org/)
+
 Spring Boot를 사용하여 JSON 파일을 읽어서 MariaDB에 데이터를 삽입하는 프로젝트입니다.
+
+## 저작권 정보
+
+**Copyright (c) 2025 qkrwlsdh**
+
+이 프로젝트는 MIT 라이선스 하에 배포됩니다. 자세한 내용은 [LICENSE](LICENSE) 파일을 참조하세요.
 
 ## 기능
 
@@ -110,25 +121,25 @@ gradlew.bat build -x test
 
 ```bash
 # Gradle 빌드 후
-java -jar build\libs\JsonToDatabase-1.0.0.jar sample_1.json
+java -jar build\libs\JsonToDatabase-1.0.0.jar sample-new-structure.json
 ```
 
 ### 2. 배치 파일 실행 (권장)
 
 ```bash
-run.bat sample_1.json
+run.bat sample-new-structure.json
 ```
 
 ### 3. Gradle을 통한 직접 실행
 
 ```bash
-gradlew.bat bootRun --args="sample_1.json"
+gradlew.bat bootRun --args="sample-new-structure.json"
 ```
 
 ### 4. IDE에서 직접 실행 (개발 시 권장)
 
 1. IDE에서 `JsonToDatabaseApplication.java` 실행
-2. Program arguments: `sample_1.json`
+2. Program arguments: `sample-new-structure.json`
 
 ## JSON 파일 형식
 
@@ -138,27 +149,27 @@ gradlew.bat bootRun --args="sample_1.json"
 {
   "meta_data_info": {
     "id": 1,
-    "doc_file_name": "RS22917754.row",
-    "product_id": 11111111,
-    "kc_date": "2025-04-12",
-    "e_name": "디지털 도어락",
-    "be_code": "AQU11",
-    "be_class": "null",
-    "re_code": "POL11",
-    "re_class": "null",
-    "description": "null",
-    "type": "RFID3-13.56",
-    "use": "디지털 도어락",
-    "product_country": "한국",
-    "field": "적합등록",
-    "source": "중앙전파관리소",
-    "test": "KS X 3123, KS X 3124, KS X 3125"
+    "doc_file_name": "방송통신기자재 등 적합성평가 데이터",
+    "product_id": "1",
+    "kc_date": "20010829",
+    "e_name": "디지털선택 호출장치",
+    "be_class": null,
+    "re_class": "가.디지털선택호출 장치의 기기 > 1)선박국용",
+    "add_class": "",
+    "use": "선박국용",
+    "product_country": "일본",
+    "field": "무선",
+    "kc_type": "적합인증",
+    "test": "KS X 3123(무선)\\nKS X 3140(EMC)",
+    "description": null
   },
-  "annotation": {
-    "question": "2.4GHz인 디지털 도어락은 어떤 적합성평가 절차를 따라야 하며, 판단하는 법적 근거는 무엇인가요?",
-    "answer": "전파법 제58조의2 및 방송통신기자재등의 적합성평가에 대한 고시 [별표1]에 따라 이와 같은 기기는 적합등록 대상에 해당됩니다.",
-    "category": "기본형",
-    "statutory provisions": "전파법 제 58조의2제2항, 전파법 시행령 제77조의2"
+  "source_data_info": {
+    "annotation": {
+      "question": "선박국용로 설명되는 디지털선택 호출장치는 평가 유형이 뭐야?",
+      "answer": "선박국용으로 설명되는 디지털선택 호출장치은 적합인증 대상이며, 전파법 제58조의2제2항, 전파법 시행령 제77조의2, 방송통신기자재등의 적합성평가에 관한 고시 제5조~제7조에 따라 적합성평가를 받아야 합니다.",
+      "catetgory": "기본형",
+      "Statutory provisions": "전파법 제58조의2제2항, 전파법 시행령 제77조의2, 방송통신기자재등의 적합성평가에 관한 고시 제5조~제7조"
+    }
   }
 }
 ```
@@ -169,27 +180,31 @@ gradlew.bat bootRun --args="sample_1.json"
 [
     {
         "meta_data_info": { ... },
-        "annotation": { ... }
+        "source_data_info": {
+            "annotation": { ... }
+        }
     },
     {
         "meta_data_info": { ... },
-        "annotation": { ... }
+        "source_data_info": {
+            "annotation": { ... }
+        }
     }
 ]
 ```
 
 ## 예시 실행
 
-1. 단일 객체 JSON 파일 처리:
+1. 새로운 구조 JSON 파일 처리:
 
 ```bash
-java -jar build\libs\JsonToDatabase-1.0.0.jar sample_1.json
+java -jar build\libs\JsonToDatabase-1.0.0.jar sample-new-structure.json
 ```
 
-2. 배열 JSON 파일 처리:
+2. 대용량 JSON 파일 처리:
 
 ```bash
-java -jar build\libs\JsonToDatabase-1.0.0.jar sample-array.json
+java -jar build\libs\JsonToDatabase-1.0.0.jar output_sample_20270709.json
 ```
 
 ## 🚀 배포 방법
@@ -216,8 +231,8 @@ JTD1.0/
 │   ├── application.properties    # 설정 파일
 │   └── application-prod.properties
 └── samples/
-    ├── sample_1.json             # 테스트용 샘플
-    └── sample-array.json
+    ├── sample-new-structure.json     # 테스트용 샘플
+    └── output_sample_20270709.json   # 대용량 샘플
 ```
 
 ### 다른 PC에 배포 시 필요사항:
@@ -289,11 +304,33 @@ CREATE TABLE product_info (
 # 온라인 도구 사용
 # https://jsonlint.com/에서 JSON 파일 내용 검증
 
-# 또는 배치 파일 사용
-validate-json.bat sample_1.json
+# 또는 실제 JSON 파일로 테스트
+java -jar build\libs\JsonToDatabase-1.0.0.jar sample-new-structure.json
 ```
 
 ## 알려진 이슈
 
 - **MariaDB 예약어 문제**: `use` 컬럼명을 `usage_description`으로 변경하여 해결
 - **한글 인코딩**: 콘솔에서 한글이 깨질 수 있으나 기능상 문제없음
+
+## 기여하기 (Contributing)
+
+1. 이 저장소를 Fork 합니다
+2. 새로운 기능 브랜치를 생성합니다 (`git checkout -b feature/새기능`)
+3. 변경사항을 커밋합니다 (`git commit -am '새 기능 추가'`)
+4. 브랜치에 Push 합니다 (`git push origin feature/새기능`)
+5. Pull Request를 생성합니다
+
+## 라이선스 (License)
+
+이 프로젝트는 **MIT 라이선스** 하에 배포됩니다. 자세한 내용은 [LICENSE](LICENSE) 파일을 참조하세요.
+
+## 개발자 정보 (Developer)
+
+- **개발자**: qkrwlsdh
+- **GitHub**: [https://github.com/qkrwlsdh](https://github.com/qkrwlsdh)
+- **프로젝트 저장소**: [https://github.com/qkrwlsdh/JsonToDatabase](https://github.com/qkrwlsdh/JsonToDatabase)
+
+## 지원 (Support)
+
+문제가 발생하거나 질문이 있으시면 [GitHub Issues](https://github.com/qkrwlsdh/JsonToDatabase/issues)에 등록해주세요.
