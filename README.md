@@ -16,14 +16,14 @@ Spring Boot를 사용하여 JSON 파일을 읽어서 MariaDB에 데이터를 삽
 ## 기능
 
 - JSON 파일을 읽어서 MariaDB의 product_info 테이블에 데이터 삽입
-- 새로운 JSON 구조 지원 (Liscense 필드와 annotation 배열 포함)
+- JSON 구조 지원 (Liscense 필드와 annotation 배열 포함)
 - 다중 데이터 처리 가능 (annotation 배열의 각 항목을 개별 레코드로 저장)
 - 명령줄 인자로 JSON 파일 경로 지정
 - JAR 파일로 실행 가능
 
 ## 지원하는 JSON 구조
 
-### 새로운 JSON 구조 (현재 지원)
+### JSON 구조 형식
 
 ```json
 {
@@ -195,7 +195,7 @@ gradlew.bat bootRun --args="sample-new-structure.json"
 
 ## 예시 실행
 
-1. 새로운 구조 JSON 파일 처리:
+1. JSON 파일 처리:
 
 ```bash
 java -jar build\libs\JsonToDatabase-1.0.0.jar sample-new-structure.json

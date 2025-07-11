@@ -91,7 +91,7 @@ spring.datasource.password=your_password
 ### 3. 실행 테스트
 
 ```bash
-# 새로운 구조의 샘플 데이터로 테스트 (samples 폴더 내)
+# 샘플 데이터로 테스트 (samples 폴더 내)
 run.bat samples\sample-new-structure.json
 
 # 또는 현재 폴더의 파일 사용

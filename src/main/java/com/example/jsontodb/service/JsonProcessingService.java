@@ -17,7 +17,6 @@ package com.example.jsontodb.service;
 import com.example.jsontodb.dto.JsonDataDto;
 import com.example.jsontodb.entity.ProductInfo;
 import com.example.jsontodb.repository.ProductInfoRepository;
-import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import org.slf4j.Logger;
@@ -63,11 +62,11 @@ public class JsonProcessingService {
                 throw new RuntimeException("파일이 존재하지 않습니다: " + filePath);
             }
             
-            // 새로운 JSON 구조 처리 - 단일 객체로 읽기
+            // JSON 파일을 단일 객체로 읽기
             JsonDataDto jsonData = objectMapper.readValue(jsonFile, JsonDataDto.class);
             
             if (jsonData.getAnnotationList() != null && !jsonData.getAnnotationList().isEmpty()) {
-                return processNewJsonStructure(jsonData);
+                return processJsonStructure(jsonData);
             } else {
                 logger.warn("JSON 파일에 annotation 배열이 없거나 비어있습니다.");
                 return 0;
@@ -80,15 +79,15 @@ public class JsonProcessingService {
     }
     
     /**
-     * 새로운 JSON 구조 처리 (annotation 배열 포함)
+     * JSON 구조 처리 (annotation 배열 포함)
      */
-    private int processNewJsonStructure(JsonDataDto jsonData) {
-        logger.info("새로운 JSON 구조 처리 중: {} 개의 annotation 항목", jsonData.getAnnotationList().size());
+    private int processJsonStructure(JsonDataDto jsonData) {
+        logger.info("JSON 구조 처리 중: {} 개의 annotation 항목", jsonData.getAnnotationList().size());
         
         int processedCount = 0;
         
         for (JsonDataDto.AnnotationItemDto annotationItem : jsonData.getAnnotationList()) {
-            ProductInfo productInfo = convertNewStructureToProductInfo(annotationItem);
+            ProductInfo productInfo = convertToProductInfo(annotationItem);
             
             // 데이터베이스에 저장
             ProductInfo savedProduct = productInfoRepository.save(productInfo);
@@ -96,14 +95,14 @@ public class JsonProcessingService {
             processedCount++;
         }
         
-        logger.info("새로운 JSON 구조 처리 완료: {} 개의 레코드 처리됨", processedCount);
+        logger.info("JSON 구조 처리 완료: {} 개의 레코드 처리됨", processedCount);
         return processedCount;
     }
     
     /**
-     * 새로운 구조의 AnnotationItemDto를 ProductInfo 엔티티로 변환
+     * AnnotationItemDto를 ProductInfo 엔티티로 변환
      */
-    private ProductInfo convertNewStructureToProductInfo(JsonDataDto.AnnotationItemDto annotationItem) {
+    private ProductInfo convertToProductInfo(JsonDataDto.AnnotationItemDto annotationItem) {
         ProductInfo productInfo = new ProductInfo();
         
         // meta_data_info 데이터 설정
