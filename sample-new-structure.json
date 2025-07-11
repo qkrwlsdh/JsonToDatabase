@@ -1,0 +1,57 @@
+{
+  "Liscense": "유클리드소프트",
+  "annotation": [
+    {
+      "meta_data_info": {
+        "id": 1,
+        "doc_file_name": "방송통신기자재 등 적합성평가 데이터!@#",
+        "product_id": "1",
+        "kc_date": "20010829",
+        "e_name": "디지털선택 호출장치",
+        "be_class": null,
+        "re_class": "가.디지털선택호출 장치의 기기 > 1)선박국용",
+        "add_class": "",
+        "use": "선박국용",
+        "product_country": "일본",
+        "field": "무선",
+        "kc_type": "적합인증",
+        "test": "KS X 3123(무선)\nKS X 3140(EMC)",
+        "description": null
+      },
+      "source_data_info": {
+        "annotation": {
+          "question": "선박국용로 설명되는 디지털선택 호출장치는 평가 유형이 뭐야?",
+          "answer": "선박국용으로 설명되는 디지털선택 호출장치은 적합인증 대상이며, 전파법 제58조의2제2항, 전파법 시행령 제77조의2, 방송통신기자재등의 적합성평가에 관한 고시 제5조~제7조에 따라 적합성평가를 받아야 합니다.",
+          "catetgory": "기본형",
+          "Statutory provisions": "전파법 제58조의2제2항, 전파법 시행령 제77조의2, 방송통신기자재등의 적합성평가에 관한 고시 제5조~제7조"
+        }
+      }
+    },
+    {
+      "meta_data_info": {
+        "id": 2,
+        "doc_file_name": "방송통신기자재 등 적합성평가 데이터",
+        "product_id": "2",
+        "kc_date": "20000621",
+        "e_name": "디지털선택 호출장치의 기기(선박국용)",
+        "be_class": null,
+        "re_class": "가.디지털선택호출 장치의 기기 > 1)선박국용",
+        "add_class": "",
+        "use": "해상이동업무용",
+        "product_country": "덴마크",
+        "field": "무선",
+        "kc_type": "적합인증",
+        "test": "KS X 3123(무선)\nKS X 3140(EMC)",
+        "description": null
+      },
+      "source_data_info": {
+        "annotation": {
+          "question": "해상이동업무용으로 쓰이는 디지털선택 호출장치의 기기(선박국용)는 어떤 평가를 받는지 알려줘.",
+          "answer": "해상이동업무용으로 설명되는 디지털선택 호출장치의 기기(선박국용)은 적합인증 대상이며, 전파법 제58조의2제2항, 전파법 시행령 제77조의2, 방송통신기자재등의 적합성평가에 관한 고시 제5조~제7조에 따라 적합성평가를 받아야 합니다.",
+          "catetgory": "기본형",
+          "Statutory provisions": "전파법 제58조의2제2항, 전파법 시행령 제77조의2, 방송통신기자재등의 적합성평가에 관한 고시 제5조~제7조"
+        }
+      }
+    }
+  ]
+}

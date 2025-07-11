@@ -1,0 +1,20 @@
+CREATE TABLE product_info (
+    id INT PRIMARY KEY,
+    doc_file_name VARCHAR(100),
+    product_id BIGINT,
+    kc_date BIGINT,
+    e_name VARCHAR(300),
+    be_class VARCHAR(300),
+    re_class VARCHAR(1000),
+    add_class VARCHAR(1000),
+    used VARCHAR(500),
+    product_country VARCHAR(200),
+    field VARCHAR(50),
+    kc_type VARCHAR(50),
+    test VARCHAR(1000),
+    description VARCHAR(1000),
+    question VARCHAR(2000),
+    answer VARCHAR(3000),
+    category VARCHAR(20),
+    statutory_provisions VARCHAR(300)
+) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
